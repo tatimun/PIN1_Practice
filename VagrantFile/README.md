@@ -1,19 +1,49 @@
 Maquina Virtual: 
 
-1. Tiene que tener estos puertos abiertos
-2. Para obtener el "IP invitado", ingresar a la maquina y correr:
-            ifconfig
+1. Chequear que estos puertos esten abiertos, hacer cambios necesarios
+2. Ejecutar en la maquina para agregar a la IP anfitrion
 
-Buscar la ip de la maquina y tomarla para la configuracion
+            ifconfig
 
 ![Alt text](image.png)
 
 
-Seguir los pasos del script
-luego
+4. Ejecutar el [Script](./setUp.sh)
 
-docker exec -ti [ID DE NEXUS] bash
+5. Ejecutar los comandos
+    
+        docker ps
+
+Tomar el output ID del contenedor de Nexus
+
+6. Ejecutar el comando:
+
+        docker exec -ti [ID DE NEXUS] bash
+
+7. Una vez dentro del contenedor nexus:
+
 bash > cd / 
+
 bash > cd nexus-data/
+
 bash > cat admin.password
-#CON ESO SE INGRESA A NEXUS
+
+8. Con esta contraseña se ingresara al Nexus 
+
+9. Configuracion del Jenkins
+
+Definition:
+Pipeline script from SCM
+
+SCM: Git
+
+Repository URL: URL del repo
+Credentials: None
+
+10. Ir a Settings en [Nexus](http:localhost/8081)
+
+11. Crear Repositorio
+    - Permitir HTTP en puerto 5000
+    - Permitir Anonymous Connection
+
+12. Ejecutar pipeline en Jenkins
