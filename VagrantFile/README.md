@@ -44,6 +44,6 @@ Credentials: None
 
 11. Crear Repositorio
     - Permitir HTTP en puerto 5000
-    - Permitir Anonymous Connection
+
 
 12. Ejecutar pipeline en Jenkins
